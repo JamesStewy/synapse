@@ -172,6 +172,17 @@ It takes the following options:
 * `container_port`: find containers forwarding this port
 * `check_interval`: how often to poll the docker API on each server. Default is 15s.
 
+##### Docker2 #####
+
+This watcher retrieves a list of [docker](http://www.docker.io/) containers via docker's [HTTP API](http://docs.docker.io/en/latest/reference/api/docker_remote_api/). Differs from the `Docker` service watcher as this watcher uses docker's event api rather than a regular polling interval.
+It takes the following options:
+
+* `method`: docker2
+* `servers`: a list of servers running docker as a daemon. Format is `{"name":"...", "host": "..."[, protocol: "http", port: 4243]}`
+* `image_name`: find containers running this image
+* `container_port`: find containers forwarding this port
+* `wait_interval`: how long to wait for additional events before polling docker for changes. Default is 0s.
+
 ##### AWS EC2 tags #####
 
 This watcher retrieves a list of Amazon EC2 instances that have a tag
