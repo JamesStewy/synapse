@@ -1,0 +1,9 @@
+synapse:
+    build: ..
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/synapse.conf.json:/etc/synapse.conf.json
+    net: "host"
+    expose:
+      - "80"
+      - "443"
